@@ -17,7 +17,7 @@ export default class Nav extends ProtectedResource {
         >
           <ul style={{listStyleType: "none", padding: 0}}>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">欢迎页</Link>
             </li>
             {this.protectedResources()}
           </ul>
@@ -29,10 +29,7 @@ export default class Nav extends ProtectedResource {
     if (this.isAuthenticated()) {
       return <>
         <li>
-          <Link to="/secret">A secret page</Link>
-        </li>
-        <li>
-          <Link to="/classified">A classified page</Link>
+          <Link to="/classified">展会工作人员入住信息</Link>
         </li>
       </>;
     } else {

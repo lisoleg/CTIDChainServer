@@ -17,8 +17,8 @@ interface AuthenticationModalState {
 
 export default class AuthenticationModal extends Component<AuthenticationModalProps, AuthenticationModalState> {
 
-  private readonly scanText = "Please scan this QR code now in your authenticator app.";
-  private readonly authText = "Please approve the authentication request in your app.";
+  private readonly scanText = "请用身份钱包扫码";
+  private readonly authText = "请按身份钱包提示批准工作证内容出示请求";
 
   constructor(props: AuthenticationModalProps) {
     super(props)
@@ -32,7 +32,7 @@ export default class AuthenticationModal extends Component<AuthenticationModalPr
         justifyContent: "center",
         alignItems: "center",
       }}>
-        <Modal.Title>QR Code Authentication</Modal.Title>
+        <Modal.Title>酒店入住登记</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
@@ -57,7 +57,7 @@ export default class AuthenticationModal extends Component<AuthenticationModalPr
       </Modal.Body>
 
       <Modal.Footer>
-        <Button variant="secondary" onClick={this.handleClose}>Cancel</Button>
+        <Button variant="secondary" onClick={this.handleClose}>取消</Button>
       </Modal.Footer>
     </Modal>
   }

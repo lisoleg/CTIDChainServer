@@ -38,15 +38,11 @@ class App extends Component<AppState> {
                 </header>
                 <Router>
                     <div style={{display: "flex"}}>
-                        <Nav AuthResponse={authResponse}/>
                         <Switch>
-                            <Route path="/secret">
-                                <Secret AuthResponse={authResponse}/>
-                            </Route>
                             <Route path="/classified">
                                 <Classified AuthResponse={authResponse}/>
                             </Route>
-                            <Route path="/"><Landing/></Route>
+                            <Route path="/"><Secret AuthResponse={authResponse}/></Route>
                         </Switch>
                         <AuthenticationModal show={this.state.showAuthenticationModal as boolean}
                                              onCloseClicked={this.hideLoginDialog}
@@ -99,13 +95,13 @@ class App extends Component<AppState> {
                     <Row className="align-items-center">
 
                         <Col className="col">
-                                <a className="youTubeLink" href={authResponse.youtubeChannelURL} target={"_blank"}><Image width={"40px;"} src={authResponse.youtubeChannelImageURL}/><b>{authResponse.youtubeChannelName}</b></a>
+                            <h2>厦门大酒店-可信数字身份峰会工作人员入住管理系统</h2>
                         </Col>
                         <Col className="col-1">
-                            <h5>Hi {authResponse.firstName} {authResponse.lastName}</h5>
+                            <h5>您好! {authResponse.firstName} {authResponse.lastName} 贵宾</h5>
                         </Col>
                         <Col className="col-1">
-                            <Button variant="primary" size="lg" onClick={this.signOut}>Sign out</Button>
+                            <Button variant="primary" size="lg" onClick={this.signOut}>退出</Button>
                         </Col>
                     </Row>
                 </Container>
@@ -114,10 +110,10 @@ class App extends Component<AppState> {
             return (<Container fluid>
                     <Row>
                         <Col className="col-10">
-                            <p/>
+                        <h2>厦门大酒店-可信数字身份峰会工作人员入住管理系统</h2>
                         </Col>
                         <Col className="col-1">
-                <Button variant="primary" size="lg" onClick={this.showLoginDialog}>Sign in</Button>
+                <Button variant="primary" size="lg" onClick={this.showLoginDialog}>登录</Button>
               </Col>
             </Row>
           </Container>

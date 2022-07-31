@@ -133,7 +133,7 @@ class Server {
                 if (stateMapping === null) {
                     return Server.sendErrorResponse(response, 500, "No request mapping could be found for the given stateId.")
                 }
-
+                console.log(authResponse)
                 this.rp.verifyAuthenticationResponseJwt(jwt, {audience: authResponse.payload.aud as string})
                     .then((verifiedResponse: VerifiedAuthenticationResponseWithJWT) => {
                         console.log("verifiedResponse: ", verifiedResponse)
@@ -167,7 +167,7 @@ class Server {
     private buildPresentationDefinition() {
         const presentationDefinitions: PresentationDefinition = {
             id: "9449e2db-791f-407c-b086-c21cc677d2e0",
-            purpose: "You can login if you are a Youtube channel owner",
+            purpose: "请出示展会工作证以入住厦门大酒店",
             submission_requirements: [{
                 name: "YoutubeChannelOwner",
                 rule: Rules.Pick,
@@ -176,7 +176,7 @@ class Server {
             }],
             input_descriptors: [{
                 id: "YoutubeChannelOwner",
-                purpose: "The channel ownership needs to be asserted by Youtube",
+                purpose: "提示：必须是可信数字身份展会工作人员方能入住本酒店",
                 name: "YoutubeChannelOwner",
                 group: ["A"],
                 schema: [{uri: "https://sphereon-opensource.github.io/vc-contexts/gimly/youtube/youtube-channel-owner.jsonld"}]
@@ -209,9 +209,9 @@ class Server {
         if (stateMapping.pollCount > 2) {
             console.log("Poll mockup sending AuthResponse")
             const authResponse: AuthResponse = new AuthResponse()
-            authResponse.userDID = "did:test-user"
-            authResponse.firstName = "Mr."
-            authResponse.lastName = "Test"
+            authResponse.userDID = "did:ctid:123456"
+            authResponse.firstName = "吴"
+            authResponse.lastName = "瑶"
             response.statusCode = 200
             response.send(authResponse)
         } else {

@@ -1,15 +1,16 @@
 import React, {Component} from "react";
-import logo from "../logo.svg";
 
 export default class Landing extends Component {
   render() {
+    
     return (
         <div className="App">
-          <img src={logo} className="App-logo" alt="logo"/>
+          <img src="hotel.png" alt="厦门大酒店"/>
           <p>
-            QR code authentication demo using SIOP v2
+          <h2>提示：必须是可信数字身份峰会工作人员方能入住本酒店</h2>
           </p>
         </div>
+        
     )
   }
 }
